@@ -1372,6 +1372,9 @@
             
             console.log('🎨 Applying language translations for: ' + lang.toUpperCase());
             
+            // Update language selector immediately
+            updateLanguageSelector();
+            
             // Update all translatable elements
             updateText('mainTitle', t.title);
             updateText('mainSubtitle', t.subtitle);
@@ -1495,7 +1498,10 @@
                 'ar': 'العربية'
             };
             
-            document.getElementById('currentLanguageText').textContent = languageNames[currentLang] || 'English';
+            const currentLangText = document.getElementById('currentLanguageText');
+            if (currentLangText) {
+                currentLangText.textContent = languageNames[currentLang] || 'English';
+            }
             
             // Update active state
             document.querySelectorAll('.language-option').forEach(option => {
@@ -1505,10 +1511,6 @@
                 }
             });
         }
-
-        // Call after applying language
-        setTimeout(updateLanguageSelector, 100);
-
 
         // Simulate loading for smooth transition
         async function loadVideoPage(pageId, videoId) {
