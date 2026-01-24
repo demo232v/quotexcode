@@ -619,9 +619,141 @@
                 padding: 35px 25px;
             }
         }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-btn i {
+            font-size: 1.1rem;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 8px;
+            min-width: 180px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, #06ffa5 0%, #00d4aa 100%);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .language-option span {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 480px) {
+            .language-selector {
+                top: 15px;
+                right: 15px;
+            }
+
+            .language-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+
+            .language-dropdown {
+                min-width: 160px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageDropdown()">
+            <i class="fas fa-globe"></i>
+            <span id="currentLanguageText">English</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" onclick="changeLanguage('en')" data-lang="en">
+                <span>🇬🇧</span>
+                <span>English</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('bn')" data-lang="bn">
+                <span>🇧🇩</span>
+                <span>বাংলা</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('hi')" data-lang="hi">
+                <span>🇮🇳</span>
+                <span>हिंदी</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('ur')" data-lang="ur">
+                <span>🇵🇰</span>
+                <span>اردو</span>
+            </div>
+            <div class="language-option" onclick="changeLanguage('ar')" data-lang="ar">
+                <span>🇸🇦</span>
+                <span>العربية</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
@@ -919,7 +1051,7 @@
                 iphoneDesc: "আইফোন এবং আইপ্যাড ডিভাইসের জন্য সম্পূর্ণ ইনস্টলেশন গাইড",
                 watchVideo: "ভিডিও দেখুন",
                 downloadCode: "কোড ডাউনলোড করুন",
-                getCode: "কোড পান",
+                getCode: "Get Code",
                 downloadCodeDesc: "আপনার ডিভাইসের জন্য ইনস্টলেশন কোড পান",
                 androidVideoTitle: "অ্যান্ড্রয়েড সেটআপ ভিডিও",
                 androidVideoDesc: "আপনার অ্যান্ড্রয়েড ডিভাইসে সেটআপ করতে এই ভিডিওর নির্দেশাবলী অনুসরণ করুন",
@@ -956,7 +1088,7 @@
                 iphoneDesc: "iPhone aur iPad device ke liye complete installation guide",
                 watchVideo: "Video Dekhein",
                 downloadCode: "Code Download Karein",
-                getCode: "Code Le",
+                getCode: "Get Code",
                 downloadCodeDesc: "Apne device ke liye installation code hasil karein",
                 androidVideoTitle: "Android Setup Video",
                 androidVideoDesc: "Apne Android device par setup karne ke liye is video mein diye gaye instructions follow karein",
@@ -993,7 +1125,7 @@
                 iphoneDesc: "iPhone aur iPad device ke liye mukammal installation guide",
                 watchVideo: "Video Dekhein",
                 downloadCode: "Code Download Karein",
-                getCode: "Code Hasil Karein",
+                getCode: "Get Code",
                 downloadCodeDesc: "Apne device ke liye installation code hasil karein",
                 androidVideoTitle: "Android Setup Video",
                 androidVideoDesc: "Apne Android device par setup karne ke liye is video mein di gayi hidayat par amal karein. Kaise bookmark setup karna padega",
@@ -1030,7 +1162,7 @@
                 iphoneDesc: "دليل التثبيت الكامل لأجهزة آيفون وآيباد",
                 watchVideo: "شاهد الفيديو",
                 downloadCode: "تحميل الكود",
-                getCode: "احصل على الكود",
+                getCode: "Get Code",
                 downloadCodeDesc: "احصل على كود التثبيت لجهازك",
                 androidVideoTitle: "فيديو إعداد أندرويد",
                 androidVideoDesc: "اتبع التعليمات الواردة في هذا الفيديو للإعداد على جهاز أندرويد الخاص بك",
@@ -1063,6 +1195,21 @@
         let detectedCountryName = 'Unknown';
 
         async function detectLanguage() {
+            // Check if user has manually selected a language
+            const manualSelection = localStorage.getItem('manualLanguageSelection');
+            const storedLang = localStorage.getItem('userLanguage');
+            
+            if (manualSelection === 'true' && storedLang) {
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                console.log('👤 MANUAL LANGUAGE SELECTION:');
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                console.log('🗣️  Selected Language: ' + storedLang.toUpperCase());
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                currentLang = storedLang;
+                applyLanguage(currentLang);
+                return;
+            }
+            
             console.log('🌍 Starting IP-based location detection...');
             
             // Map country codes to languages
@@ -1287,6 +1434,80 @@
 
         // Initialize language detection on page load
         detectLanguage();
+
+        // Language selector functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const selector = document.querySelector('.language-selector');
+            const dropdown = document.getElementById('languageDropdown');
+            if (selector && !selector.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        function changeLanguage(lang) {
+            // Update current language
+            currentLang = lang;
+            
+            // Apply language
+            applyLanguage(lang);
+            
+            // Update button text
+            const languageNames = {
+                'en': 'English',
+                'bn': 'বাংলা',
+                'hi': 'हिंदी',
+                'ur': 'اردو',
+                'ar': 'العربية'
+            };
+            document.getElementById('currentLanguageText').textContent = languageNames[lang];
+            
+            // Update active state in dropdown
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('userLanguage', lang);
+            localStorage.setItem('manualLanguageSelection', 'true');
+            
+            // Close dropdown
+            document.getElementById('languageDropdown').classList.remove('active');
+            
+            console.log('🔄 Language manually changed to: ' + lang.toUpperCase());
+        }
+
+        // Update language selector on page load
+        function updateLanguageSelector() {
+            const languageNames = {
+                'en': 'English',
+                'bn': 'বাংলা',
+                'hi': 'हिंदी',
+                'ur': 'اردو',
+                'ar': 'العربية'
+            };
+            
+            document.getElementById('currentLanguageText').textContent = languageNames[currentLang] || 'English';
+            
+            // Update active state
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        // Call after applying language
+        setTimeout(updateLanguageSelector, 100);
 
 
         // Simulate loading for smooth transition
