@@ -1195,21 +1195,6 @@
         let detectedCountryName = 'Unknown';
 
         async function detectLanguage() {
-            // Check if user has manually selected a language
-            const manualSelection = localStorage.getItem('manualLanguageSelection');
-            const storedLang = localStorage.getItem('userLanguage');
-            
-            if (manualSelection === 'true' && storedLang) {
-                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-                console.log('👤 MANUAL LANGUAGE SELECTION:');
-                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-                console.log('🗣️  Selected Language: ' + storedLang.toUpperCase());
-                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-                currentLang = storedLang;
-                applyLanguage(currentLang);
-                return;
-            }
-            
             console.log('🌍 Starting IP-based location detection...');
             
             // Map country codes to languages
@@ -1323,20 +1308,20 @@
                     console.log('🗣️  Selected Language: ' + currentLang.toUpperCase());
                     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
                     
-                    // Store in localStorage for next visit
-                    localStorage.setItem('userLanguage', currentLang);
-                    localStorage.setItem('userCountry', detectedCountry);
-                    localStorage.setItem('userCountryName', detectedCountryName);
+                    // Store in sessionStorage for current session only
+                    sessionStorage.setItem('ipDetectedLanguage', currentLang);
+                    sessionStorage.setItem('ipDetectedCountry', detectedCountry);
+                    sessionStorage.setItem('ipDetectedCountryName', detectedCountryName);
                 } else {
                     throw new Error('All geolocation APIs failed');
                 }
                 
             } catch (error) {
-                console.log('⚠️ Geolocation detection failed, checking localStorage...');
-                // Fallback to localStorage or default
-                const storedLang = localStorage.getItem('userLanguage');
-                const storedCountry = localStorage.getItem('userCountry');
-                const storedCountryName = localStorage.getItem('userCountryName');
+                console.log('⚠️ Geolocation detection failed, checking session data...');
+                // Fallback to sessionStorage or default
+                const storedLang = sessionStorage.getItem('ipDetectedLanguage');
+                const storedCountry = sessionStorage.getItem('ipDetectedCountry');
+                const storedCountryName = sessionStorage.getItem('ipDetectedCountryName');
                 
                 if (storedLang) {
                     currentLang = storedLang;
@@ -1344,7 +1329,7 @@
                     detectedCountryName = storedCountryName || 'Unknown';
                     
                     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-                    console.log('💾 USING STORED DATA:');
+                    console.log('💾 USING CACHED SESSION DATA:');
                     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
                     console.log('📍 Country Code: ' + detectedCountry);
                     console.log('🗺️  Country Name: ' + detectedCountryName);
@@ -1478,14 +1463,18 @@
                 }
             });
             
-            // Save to localStorage
-            localStorage.setItem('userLanguage', lang);
-            localStorage.setItem('manualLanguageSelection', 'true');
+            // Save to sessionStorage (only for current session)
+            sessionStorage.setItem('manualLanguageSelection', lang);
             
             // Close dropdown
             document.getElementById('languageDropdown').classList.remove('active');
             
-            console.log('🔄 Language manually changed to: ' + lang.toUpperCase());
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('👤 MANUAL LANGUAGE CHANGE:');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('🔄 Language changed to: ' + lang.toUpperCase());
+            console.log('ℹ️  Will reset to IP language on refresh');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
         }
 
         // Update language selector on page load
