@@ -3,8 +3,27 @@ const path = require('path');
 
 module.exports = (req, res) => {
   try {
-    const filePath = path.join(__dirname, '..', '_content.html');
-    const html = fs.readFileSync(filePath, 'utf8');
+    // Try multiple possible paths for the content file
+    let html;
+    const possiblePaths = [
+      path.join(process.cwd(), '_content.html'),
+      path.join(__dirname, '..', '_content.html'),
+      path.resolve('_content.html')
+    ];
+
+    for (const p of possiblePaths) {
+      try {
+        html = fs.readFileSync(p, 'utf8');
+        break;
+      } catch (e) {
+        continue;
+      }
+    }
+
+    if (!html) {
+      res.status(500).send('Content not found');
+      return;
+    }
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
