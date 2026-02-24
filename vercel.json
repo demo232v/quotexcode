@@ -47,10 +47,6 @@
     {
       "source": "/",
       "destination": "/quotexcode.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/quotexcode.html"
     }
   ]
 }
