@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/_content.html",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/_content.html"
+    }
+  ]
+}
